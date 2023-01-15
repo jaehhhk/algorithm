@@ -3,7 +3,7 @@ input = __import__('sys').stdin.readline
 
 A=input()
 B=input()
-dp=[[0]*1001 for _ in range(1001)]
+dp=[[0]*1001 for _ in range(1001)]  # 최대 1000글자까지 가능이므로 최대 길이로 세팅
 
 ans=0
 for i in range(1, len(A)+1):
