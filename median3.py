@@ -8,7 +8,7 @@ def med3(a, b, c):
             return a
         else:
             return c
-    elif a > c:
+    elif a > c: # a < b
         return a
     elif b > c:
         return c
