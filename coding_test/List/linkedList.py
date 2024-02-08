@@ -4,27 +4,29 @@
 
 # node.py에서 구현해준 노드 클래스
 class Node:
-    def __inti__(self, value=0, next=None):
+    def __init__(self, value=0, next=None):
         self.value = value
         self.next = next
 
 class LinkedList(object):
     def __init__(self):
+        # 링크드리스트는 head 무조건 가져야
+        # head를 통해 어느 노드든 접근 가능
         self.head = None
         self.tail = None
     
-    # O(1)로 append 구현
+    # O(1)로 append(insert_back) 구현
     def append(self, value):
         new_node = Node(value)
         
-        # head가 첫 번째 노드를 가리켜야
-        if self.head is None:
+        # head가 첫 번째 노드를 가리켜야, 그리고 다른 노드 들어와도 그거 가리키는게 아니라 계속 첫번째 노드를 가리키고 있어야
+        if self.head is None:   # 노드가 하나도 안들어온 상태
             self.head = new_node
             self.tail = new_node
         # 맨 뒤 노드가 new_node를 가리켜야
         else:
-            self.tail.next = new_node
-            self.tail = self.tail.next
+            self.tail.next = new_node   # 끝에 연결
+            self.tail = self.tail.next  # tail은 이제 새롭게 다음 노드의 tail이 되므로 그걸 가리켜주면 됨
     
     # head 접근 → 원하는 index 이동 → value 반환  
     def get(self, idx):
